@@ -15,6 +15,9 @@ c Active tracer for total phytoplankton biomass
 c Prevents negative values in nutrient fields
 #define BLING_NO_NEG
 
+c Add DOC
+#define BLING_DOC
+
 c Assume that phytoplankton in the mixed layer experience
 c the average light over the mixed layer
 c (as in original BLING model)
@@ -27,13 +30,13 @@ c Sub grid scale sediments
 #undef  USE_SGS_SED
 
 c Determine PAR from shortwave radiation from EXF package
-#define USE_EXFQSW
+#undef USE_EXFQSW
 
 c Use local atmospheric pressure from EXF package for fugacity factor
 #undef USE_EXF_ATMPRES
 
 c Read atmospheric pCO2 values from EXF package
-#define USE_EXFCO2
+#undef USE_EXFCO2
 
 c For exf undefined cannot use exf fields
 #ifndef ALLOW_EXF
@@ -50,7 +53,7 @@ c (so no need to calc MLD in bling_production)
 
 c Simplify some parts of the code that are problematic
 c when using the adjoint
-#undef BLING_ADJOINT_SAFE
+#define BLING_ADJOINT_SAFE
 
 c For adjoint safe, use constant MLD in bling_dvm
 #ifdef BLING_ADJOINT_SAFE
